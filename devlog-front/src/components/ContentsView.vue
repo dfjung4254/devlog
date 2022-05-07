@@ -1,12 +1,12 @@
 <template>
   <div class="main-panel">
-
+    {{msg}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Contents',
+  name: 'ContentsView',
   props: {
     msg: String
   }
