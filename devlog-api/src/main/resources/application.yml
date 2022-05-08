@@ -1,0 +1,13 @@
+spring:
+
+  output:
+    ansi:
+      enabled: always
+
+  devlog:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://notionlog-1.cb8rglrqwuro.ap-northeast-2.rds.amazonaws.com:3306/devlog
+      username: admin
+      password: ${TLDJ_PASSWORD}
+
