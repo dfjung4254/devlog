@@ -1,0 +1,8 @@
+{
+  "name": "devlog-api",
+  "version": "1.0.0",
+  "main": "run_local.js",
+  "type":"module",
+  "author": "devejk",
+  "license": "MIT"
+}
