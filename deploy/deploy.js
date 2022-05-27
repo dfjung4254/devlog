@@ -3,7 +3,7 @@
 import PathUtils from './path.js'
 import ProcessUtils from './process.js'
 
-const pathUtils = new PathUtils();
+const pathUtils = new PathUtils(process.argv[2]);
 const processUtils = new ProcessUtils();
 const DOCKER_IMAGE_TAG = 'devjk/devlog';
 const DOCKER_IMAGE_SAVE_NAME = 'devlog.tar';

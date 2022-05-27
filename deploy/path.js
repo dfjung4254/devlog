@@ -2,18 +2,18 @@ import path from 'path';
 
 export default class PathUtils {
 
-  constructor() {
+  constructor(workingDir) {
+
+    console.log(`current working Dir is ${workingDir}`)
+
     this.DIR_NAME_FRONT = 'devlog-front';
     this.DIR_NAME_API = 'devlog-api';
-    this.deployPath = process.cwd();
+    this.DIR_NAME_DEPLOY = 'deploy';
 
-    this.projectPath = this.setProjectPath();
+    this.projectPath = workingDir;
+    this.deployPath = this.setDeployPath();
     this.frontPath = this.setFrontPath();
     this.apiPath = this.setApiPath();
-  }
-
-  setProjectPath = () => {
-    return path.resolve(this.deployPath, '../');
   }
 
   getProjectPath = () => {
@@ -34,6 +34,10 @@ export default class PathUtils {
 
   getApiPath = () => {
     return this.apiPath;
+  }
+
+  setDeployPath = () => {
+    return path.resolve(this.getProjectPath(), this.DIR_NAME_DEPLOY);
   }
 
   getDeployPath = () => {
