@@ -10,10 +10,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: set ssh key
-        env:
-          SSH_KEY: ${{ secrets.CLUBTETRIX_PEM }}
         run: |
-          echo $SSH_KEY | tr -d '\r' > ~/.ssh/clubtetrix.pem
+          echo ${{ ssh.CLUBTETRIX_PEM }} | tr -d '\r' > ~/.ssh/clubtetrix.pem
           chmod 400 ~/.ssh/clubtetrix.pem
 
       - name : run deploy.js
