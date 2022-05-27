@@ -9,5 +9,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
+      - name: set ssh key
+        run: |
+          echo "${{secrets.CLUBTETRIX_PEM}}" | tr -d '\r' > ~/.ssh/clubtetrix.pem
+          chmod 400 ~/.ssh/clubtetrix.pem
+
       - name : run deploy.js
-        run: ./deploy/deploy.js $GITHUB_WORKSPACE
+        run: |
+          ./deploy/deploy.js $GITHUB_WORKSPACE

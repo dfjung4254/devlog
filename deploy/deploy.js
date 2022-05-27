@@ -7,13 +7,14 @@ const pathUtils = new PathUtils(process.argv[2]);
 const processUtils = new ProcessUtils();
 const DOCKER_IMAGE_TAG = 'devjk/devlog';
 const DOCKER_IMAGE_SAVE_NAME = 'devlog.tar';
+const SERVER_FQDN = 'ubuntu@13.209.67.71';
 
 async function init() {
 
   setup();
   test();
   await build();
-  deploy();
+  pushServer();
 
 }
 
@@ -120,9 +121,18 @@ async function saveDockerImage() {
 /**
  * push to server and run container
  */
-function deploy() {
+function pushServer() {
 
-  console.log(`deploying..`);
+  const deployPath = pathUtils.getDeployPath();
+  const dockerImagePath = pathUtils.concat(deployPath, DOCKER_IMAGE_SAVE_NAME);
+  console.log(`push docker image to server : ${dockerImagePath}`);
+  const code = await processUtils.exec('scp', [
+    '-i',
+    '~/.ssh/clubtetrix.pem',  // todo
+    dockerImagePath,
+    SERVER_FQDN
+  ]);
+  console.log(`push docker image to server success with code : ${code}`);
 
 }
 

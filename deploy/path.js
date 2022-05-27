@@ -44,4 +44,8 @@ export default class PathUtils {
     return this.deployPath;
   }
 
+  concat = (path1, path2) => {
+    return path.resolve(path1, path2);
+  }
+
 }
