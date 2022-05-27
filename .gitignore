@@ -5,6 +5,9 @@ node_modules
 # static vue build files
 devlog-api/src/main/resources/static/
 
+# local gradle settings
+gradle.properties
+
 
 # local env files
 .env.local
