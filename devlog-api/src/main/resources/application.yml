@@ -4,6 +4,11 @@ spring:
     ansi:
       enabled: always
 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
   devlog:
     datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver

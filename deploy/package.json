@@ -1,0 +1,9 @@
+{
+  "name": "deploy",
+  "version": "1.0.0",
+  "description": "deploy scripts for devlog",
+  "main": "deploy.js",
+  "type": "module",
+  "author": "devjk",
+  "license": "MIT"
+}

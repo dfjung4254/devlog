@@ -47,12 +47,12 @@ public class DevlogConfig {
   @Primary
   @Bean
   public LocalContainerEntityManagerFactoryBean devlogEntityManager(EntityManagerFactoryBuilder builder) {
-    Map<String, Object> properites = hibernateProperties.determineHibernateProperties(
+    Map<String, Object> properties = hibernateProperties.determineHibernateProperties(
         jpaProperties.getProperties(), new HibernateSettings()
     );
 
     return builder.dataSource(devlogDataSource())
-        .properties(properites)
+        .properties(properties)
         .packages("com.devlog.core.db.devlog.entity")
         .persistenceUnit("devlog")
         .build();
