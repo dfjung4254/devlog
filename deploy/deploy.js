@@ -54,7 +54,13 @@ async function buildFront() {
   const frontPath = pathUtils.getFrontPath();
   console.log(`build front : ${frontPath}`);
   process.chdir(frontPath);
-  const code = await processUtils.exec('yarn', ['build-deploy']);
+
+  // yarn install
+  let code = await processUtils.exec('yarn', ['install']);
+  console.log(`yarn install success with code : ${code}`);
+
+  // yarn build-deploy
+  code = await processUtils.exec('yarn', ['build-deploy']);
   console.log(`build front success with code : ${code}`);
 
 }
