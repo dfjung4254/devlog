@@ -11,6 +11,8 @@ docker save -o devlog.tar devjk/devlog
 
 docker build --build-arg JAR_FILE=build/libs/\*.jar -t springio/gs-spring-boot-docker .
 
+// deploy-main.yml 에서
+
 // 여기서 부터
 scp -i ~/.ssh/clubtetrix.pem devlog.tar ubuntu@13.209.67.71
 ssh -i clubtetrix.pem ubuntu@13.209.67.71
