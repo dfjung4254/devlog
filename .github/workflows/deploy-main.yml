@@ -9,13 +9,10 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: set ssh key
-        env:
-          SSH_SECRET: ${{ secrets.CLUBTETRIX_PEM }}
-        run: |
-          mkdir ~/.ssh
-          echo "$SSH_SECRET" > ~/.ssh/clubtetrix.pem
-          chmod 400 ~/.ssh/clubtetrix.pem
+      - name: Install ssh key
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.CLUBTETRIX_PEM }}
 
       - name : run deploy.js
         run: |
