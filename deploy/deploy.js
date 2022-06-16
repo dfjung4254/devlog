@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+/**
+ *
+ * this code work with below command!
+ * ./deploy.js ${DEVLOG_DEFAULT_PROJECT_PATH}
+ *
+ */
+
 import PathUtils from './path.js'
 import ProcessUtils from './process.js'
 
@@ -130,7 +137,7 @@ async function pushServer() {
     '-i',
     '~/.ssh/clubtetrix.pem',  // todo
     dockerImagePath,
-    SERVER_FQDN
+    SERVER_FQDN + ':~'
   ]);
   console.log(`push docker image to server success with code : ${code}`);
 

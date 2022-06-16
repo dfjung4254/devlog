@@ -1,3 +1,6 @@
+
+### Test Server : 13.209.67.71:8080
+
 ### deploy
 ```
 docker build --platform amd64 --build-arg JAR_FILE=build/libs/\*.jar -t devjk/devlog .
