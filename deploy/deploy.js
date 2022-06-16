@@ -121,7 +121,7 @@ async function saveDockerImage() {
 /**
  * push to server and run container
  */
-function pushServer() {
+async function pushServer() {
 
   const deployPath = pathUtils.getDeployPath();
   const dockerImagePath = pathUtils.concat(deployPath, DOCKER_IMAGE_SAVE_NAME);
