@@ -13,7 +13,7 @@ jobs:
         shell: bash
         run: |
           mkdir ~/.ssh
-          echo "${{secrets.CLUBTETRIX_PEM}}" | tr -d '\r' > ~/.ssh/clubtetrix.pem
+          echo "${{secrets.CLUBTETRIX_PEM}}" > ~/.ssh/clubtetrix.pem
           chmod 400 ~/.ssh/clubtetrix.pem
 
       - name : run deploy.js
