@@ -9,14 +9,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: set ssh key
-        shell: bash
-        env:
-          SSH_SECRET: ${{ secrets.CLUBTETRIX_PEM }}
-        run: |
-          mkdir ~/.ssh
-          echo "$SSH_SECRET" | tr -d '\r' > ~/.ssh/clubtetrix.pem
-          chmod 400 ~/.ssh/clubtetrix.pem
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.CLUBTETRIX_PEM }}
+          if_key_exists: replace
 
       - name : run deploy.js
         run: |
