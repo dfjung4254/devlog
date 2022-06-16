@@ -11,6 +11,7 @@ jobs:
 
       - name: set ssh key
         run: |
+          mkdir ~/.ssh
           echo "${{ secrets.CLUBTETRIX_PEM }}" | tr -d '\r' > ~/.ssh/clubtetrix.pem
           chmod 400 ~/.ssh/clubtetrix.pem
 
