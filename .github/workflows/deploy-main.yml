@@ -11,11 +11,9 @@ jobs:
 
       - name: set ssh key
         shell: bash
-        env:
-          SSH_SECRET: ${{ secrets.CLUBTETRIX_PEM }}
         run: |
           mkdir ~/.ssh
-          echo "$SSH_SECRET" | tr -d '\r' > ~/.ssh/clubtetrix.pem
+          echo "${{secrets.CLUBTETRIX_PEM}}" | tr -d '\r' > ~/.ssh/clubtetrix.pem
           chmod 400 ~/.ssh/clubtetrix.pem
 
       - name : run deploy.js
